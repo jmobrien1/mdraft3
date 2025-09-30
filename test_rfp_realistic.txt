@@ -1,0 +1,210 @@
+DEPARTMENT OF HOMELAND SECURITY
+TRANSPORTATION SECURITY ADMINISTRATION
+INFORMATION TECHNOLOGY SUPPORT SERVICES
+
+REQUEST FOR PROPOSAL (RFP)
+RFP NUMBER: TSA-2025-IT-001
+SOLICITATION DATE: January 15, 2025
+
+================================================================================
+SECTION C: STATEMENT OF WORK
+================================================================================
+
+1. INTRODUCTION AND BACKGROUND
+
+1.1 Purpose
+The Transportation Security Administration (TSA) requires comprehensive Information Technology Support Services to maintain and enhance the agency's IT infrastructure, applications, and security posture. The contractor shall provide expert technical support to ensure the continuous operation of mission-critical systems supporting aviation security operations.
+
+1.2 Scope
+This contract covers IT support services including system administration, network management, cybersecurity operations, application development, and technical support for approximately 50,000 TSA employees across 440 federalized airports nationwide.
+
+2. TECHNICAL REQUIREMENTS
+
+2.1 System Performance Requirements
+The contractor shall ensure all IT systems maintain the following performance standards:
+
+2.1.1 System Availability
+The contractor shall maintain 99.9% uptime for all mission-critical systems during operational hours (24/7/365). Planned maintenance windows shall not exceed 4 hours per month and must be scheduled during low-traffic periods (2:00 AM - 6:00 AM EST).
+
+2.1.2 Response Time
+The contractor shall ensure that all web-based applications respond to user requests within 2 seconds under normal load conditions. Database queries shall return results within 500 milliseconds for 95% of all queries.
+
+2.1.3 Scalability
+The system shall support concurrent access by up to 10,000 users without performance degradation. The contractor shall implement auto-scaling capabilities to handle traffic spikes during peak travel periods.
+
+2.2 Security Requirements
+
+2.2.1 Compliance Standards
+The contractor shall comply with the following security standards and regulations:
+- NIST Special Publication 800-53 (Security and Privacy Controls)
+- NIST Special Publication 800-171 (Protecting Controlled Unclassified Information)
+- Federal Information Security Management Act (FISMA)
+- Department of Homeland Security (DHS) 4300A Sensitive Systems Handbook
+
+2.2.2 Data Protection
+The contractor shall implement encryption for all data at rest using AES-256 encryption. All data in transit shall be encrypted using TLS 1.3 or higher. The contractor shall implement multi-factor authentication (MFA) for all system access.
+
+2.2.3 Security Monitoring
+The contractor shall implement continuous security monitoring using a Security Information and Event Management (SIEM) system. The contractor shall detect and respond to security incidents within 15 minutes of detection for critical alerts and within 4 hours for medium-severity alerts.
+
+2.3 Application Development Requirements
+
+2.3.1 Development Standards
+The contractor shall follow Agile development methodologies with two-week sprints. All code shall be peer-reviewed before deployment. The contractor shall maintain a minimum code coverage of 80% for all automated tests.
+
+2.3.2 Technology Stack
+The contractor shall use approved technologies including:
+- Frontend: React.js or Angular (latest stable version)
+- Backend: Python 3.11+ or Java 17+
+- Database: PostgreSQL 15+ or Oracle 19c
+- Cloud Platform: AWS GovCloud (US) or Azure Government
+
+2.4 Help Desk Support Requirements
+
+2.4.1 Support Levels
+The contractor shall provide tiered technical support with the following response times:
+- Priority 1 (System Down): 15-minute response, 4-hour resolution
+- Priority 2 (Major Impact): 1-hour response, 8-hour resolution
+- Priority 3 (Minor Impact): 4-hour response, 24-hour resolution
+- Priority 4 (Enhancement): 24-hour response, 5-day resolution
+
+2.4.2 Support Hours
+The contractor shall provide Level 1 and Level 2 support 24 hours per day, 7 days per week, including federal holidays. Level 3 support shall be available during business hours (8:00 AM - 6:00 PM EST, Monday-Friday).
+
+3. DELIVERABLES
+
+3.1 Required Deliverables
+The contractor shall provide the following deliverables:
+
+3.1.1 Monthly Status Reports
+The contractor shall submit monthly status reports by the 5th business day of each month. Reports shall include system performance metrics, security incident summaries, help desk ticket statistics, and project progress updates.
+
+3.1.2 Technical Documentation
+The contractor shall maintain comprehensive technical documentation including system architecture diagrams, API documentation, database schemas, deployment procedures, and disaster recovery plans. Documentation shall be updated within 5 business days of any system changes.
+
+3.1.3 Training Materials
+The contractor shall develop and deliver training materials for end users and administrators. Training shall include video tutorials, user guides, and hands-on workshops. The contractor shall conduct quarterly training sessions for new users.
+
+3.1.4 Disaster Recovery Plan
+The contractor shall develop and maintain a comprehensive Disaster Recovery (DR) plan with a Recovery Time Objective (RTO) of 4 hours and Recovery Point Objective (RPO) of 1 hour. The contractor shall conduct DR testing quarterly.
+
+3.2 Deliverable Schedule
+All deliverables shall be submitted according to the schedule outlined in Attachment A (Deliverables Schedule).
+
+4. PERFORMANCE STANDARDS
+
+4.1 Service Level Agreements (SLAs)
+The contractor shall meet the following Service Level Agreements:
+- System Uptime: 99.9% measured monthly
+- Incident Response: 95% of Priority 1 incidents resolved within 4 hours
+- Help Desk First-Call Resolution: 70% of Priority 3 and 4 tickets
+- Security Patch Deployment: Critical patches deployed within 48 hours
+
+4.2 Performance Monitoring
+The Government shall monitor contractor performance through automated monitoring tools and monthly performance reviews. Failure to meet SLAs may result in contract remediation or termination.
+
+================================================================================
+SECTION L: INSTRUCTIONS TO OFFERORS
+================================================================================
+
+1. PROPOSAL FORMAT
+
+1.1 Volume Organization
+Offerors shall submit proposals organized into three volumes:
+
+Volume 1 - Technical Approach (Page Limit: 50 pages)
+Volume 2 - Management Plan (Page Limit: 30 pages)
+Volume 3 - Price Proposal (No page limit)
+
+1.2 Formatting Requirements
+All proposals shall use 12-point Times New Roman font, single-spaced, with 1-inch margins. Pages shall be numbered sequentially within each volume.
+
+2. SUBMISSION REQUIREMENTS
+
+2.1 Deadline
+Proposals shall be submitted electronically through SAM.gov no later than March 15, 2025, at 2:00 PM EST. Late proposals will not be accepted.
+
+2.2 Questions
+Questions regarding this RFP shall be submitted in writing via email to tsa-contracting@tsa.dhs.gov by February 10, 2025. Responses will be posted as amendments to the solicitation.
+
+3. PROPOSAL CONTENT
+
+3.1 Technical Approach (Volume 1)
+Offerors shall describe their technical approach including:
+- Understanding of requirements
+- Proposed solution architecture
+- Technology implementation plan
+- Security approach and compliance strategy
+- Quality assurance methodology
+
+3.2 Management Plan (Volume 2)
+Offerors shall describe their management approach including:
+- Project management methodology
+- Key personnel and organizational structure
+- Risk management plan
+- Subcontractor management (if applicable)
+- Past performance references (minimum 3 relevant contracts)
+
+3.3 Price Proposal (Volume 3)
+Offerors shall provide fully burdened labor rates by labor category for the base year and four option years. Pricing shall include all direct and indirect costs.
+
+================================================================================
+SECTION M: EVALUATION CRITERIA
+================================================================================
+
+1. EVALUATION APPROACH
+
+The Government will conduct a best-value trade-off evaluation considering technical merit, management capability, past performance, and price. The Government reserves the right to make an award without discussions.
+
+2. EVALUATION FACTORS
+
+Proposals will be evaluated based on the following factors in descending order of importance:
+
+2.1 Technical Approach (40 points)
+The Government will evaluate:
+- Soundness and feasibility of proposed technical solution
+- Compliance with security and performance requirements
+- Innovation and use of modern technologies
+- Approach to system scalability and availability
+- Quality assurance and testing methodology
+
+2.2 Management Capability (25 points)
+The Government will evaluate:
+- Adequacy of project management approach
+- Qualifications and experience of key personnel
+- Risk management strategy
+- Organizational structure and team integration
+- Subcontractor management plan (if applicable)
+
+2.3 Past Performance (20 points)
+The Government will evaluate:
+- Relevance of past performance references
+- Quality of performance on similar contracts
+- Customer satisfaction ratings
+- Record of meeting schedule and budget
+- Performance on government contracts (preferred)
+
+2.4 Price (15 points)
+The Government will evaluate:
+- Overall price reasonableness
+- Price realism
+- Cost-effectiveness of proposed solution
+- Completeness of price proposal
+
+3. AWARD DECISION
+
+The Government will select the proposal that represents the best value to the Government considering all evaluation factors. The Government may award to other than the lowest-priced offeror if the technical superiority of a higher-priced proposal justifies the additional cost.
+
+================================================================================
+SECTION B: CONTRACT INFORMATION
+================================================================================
+
+Contract Type: Firm-Fixed-Price
+Period of Performance: Base Year + Four 1-Year Options (5 years total)
+Place of Performance: TSA Headquarters, Arlington, VA + Remote
+NAICS Code: 541512 - Computer Systems Design Services
+Small Business Set-Aside: None
+
+================================================================================
+END OF REQUEST FOR PROPOSAL
+================================================================================
