@@ -1,53 +1,158 @@
-# RFP Extraction and Analysis Platform
+# RFP Requirement Extractor
 
-An AI-powered platform for extracting and analyzing U.S. Government Requests for Proposals (RFPs) with human-in-the-loop validation for 100% accuracy compliance.
+AI-powered requirement extraction and classification from RFP (Request for Proposal) documents.
 
-## 🎯 Overview
+## Features
 
-This platform implements the strategic blueprint outlined in the RFP document, providing:
+- Upload PDF, DOCX, and TXT documents
+- Automatic requirement extraction using pattern matching
+- Classify requirements into:
+  - Performance Requirements
+  - Compliance Requirements
+  - Deliverable Requirements
+- Human validation workflow
+- Real-time statistics and tracking
+- Persistent storage with Supabase
 
-- **Dual-Engine Document Processing**: Cost-effective PyMuPDF/Unstructured.io with Google Document AI escalation
-- **Intelligent Chunking**: RFP-aware text segmentation preserving semantic boundaries
-- **Human-in-the-Loop Validation**: Streamlit correction console for 100% accuracy
-- **Compliance & Audit Trail**: Full traceability for government contracting requirements
-- **Vector Search**: Semantic similarity search using pgvector (PostgreSQL) or text search (SQLite)
+## Tech Stack
 
-## 🏗️ Architecture
+### Backend
+- FastAPI (REST API)
+- Supabase (PostgreSQL + Storage)
+- PyPDF2 & python-docx (Document parsing)
+- Pattern-based extraction
 
-### Backend (FastAPI)
-- **Database**: PostgreSQL with pgvector extension (SQLite for development)
-- **Models**: SQLAlchemy ORM with comprehensive audit trails
-- **API**: RESTful endpoints for document upload, processing, and validation
-- **Processing**: Asynchronous background tasks for document processing
+### Frontend
+- React
+- Vite
+- Axios
+- Modern responsive UI
 
-### Frontend (Streamlit)
-- **Correction Console**: Interactive interface for human validation
-- **Review Queue**: Prioritized list of requirements needing validation
-- **Analytics Dashboard**: System statistics and health monitoring
-- **Document Management**: Upload and track document processing status
+## Quick Start
 
-## 🚀 Quick Start
+### 1. Clone and Setup
 
-### Prerequisites
-- Python 3.12+
-- Virtual environment (recommended)
-
-### Installation
-
-1. **Clone and setup environment:**
 ```bash
-cd /Users/mikeobrien/mdraft3
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# Backend
+cd backend
 pip install -r requirements.txt
+cp ../.env .env
+
+# Frontend
+cd ../frontend
+npm install
+cp ../.env .env
 ```
 
-2. **Initialize database:**
+### 2. Run Locally
+
+Terminal 1 (Backend):
 ```bash
-python database.py
+cd backend
+uvicorn main:app --reload
 ```
 
-3. **Start the FastAPI backend:**
+Terminal 2 (Frontend):
+```bash
+cd frontend
+npm run dev
+```
+
+Visit http://localhost:5173
+
+## Architecture
+
+```
+┌─────────────┐      ┌──────────────┐      ┌──────────────┐
+│   React     │─────>│   FastAPI    │─────>│   Supabase   │
+│   Frontend  │      │   Backend    │      │   Database   │
+└─────────────┘      └──────────────┘      └──────────────┘
+                            │
+                            v
+                     ┌──────────────┐
+                     │   Supabase   │
+                     │   Storage    │
+                     └──────────────┘
+```
+
+## API Endpoints
+
+- `GET /` - Health check
+- `GET /documents` - List all documents
+- `POST /documents/upload` - Upload and process document
+- `GET /documents/{id}` - Get document with requirements
+- `GET /documents/{id}/stats` - Get document statistics
+- `PATCH /requirements/{id}` - Update requirement status
+
+## Deployment
+
+See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for detailed deployment instructions.
+
+Quick deploy options:
+- **Backend**: Railway, Render, or Docker
+- **Frontend**: Vercel or Netlify
+
+## Project Structure
+
+```
+.
+├── backend/
+│   ├── main.py              # FastAPI app
+│   ├── config.py            # Settings
+│   ├── document_parser.py   # PDF/DOCX parsing
+│   ├── requirement_extractor.py  # Extraction logic
+│   └── requirements.txt     # Python dependencies
+├── frontend/
+│   ├── src/
+│   │   ├── App.jsx         # Main React component
+│   │   └── App.css         # Styles
+│   └── package.json        # Node dependencies
+└── .env                    # Environment variables
+```
+
+## Database Schema
+
+### documents
+- id, filename, file_path, file_size, file_type, mime_type
+- status, uploaded_by, uploaded_at, processed_at
+
+### requirements
+- id, document_id, source_chunk_id
+- raw_text, clean_text, classification
+- source_section, source_subsection
+- ai_confidence_score, status
+- validated_by, validated_at
+
+## Requirement Classification
+
+The system uses pattern matching to classify requirements:
+
+### Performance Requirements
+- Uptime percentages (99.9%)
+- Response times
+- Processing speeds
+- Latency requirements
+
+### Compliance Requirements
+- Security standards (FISMA, NIST, ISO)
+- Encryption requirements
+- Audit requirements
+- Authentication standards
+
+### Deliverable Requirements
+- Reports and documentation
+- Submission deadlines
+- Deliverable schedules
+
+## Future Enhancements
+
+- [ ] OpenAI GPT integration for better extraction
+- [ ] Semantic search with embeddings
+- [ ] Export to Excel/PDF
+- [ ] Multi-user authentication
+- [ ] Requirement dependency mapping
+- [ ] Batch document processing
+- [ ] API webhooks for integrations
 ```bash
 python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
