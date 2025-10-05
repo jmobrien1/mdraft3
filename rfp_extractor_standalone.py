@@ -12,6 +12,20 @@ from pathlib import Path
 from typing import List, Dict, Optional
 import streamlit as st
 from dataclasses import dataclass
+import io
+
+# Optional imports for document parsing
+try:
+    import PyPDF2
+    PDF_AVAILABLE = True
+except ImportError:
+    PDF_AVAILABLE = False
+
+try:
+    from docx import Document
+    DOCX_AVAILABLE = True
+except ImportError:
+    DOCX_AVAILABLE = False
 
 # Configuration
 DB_FILE = "rfp_extraction.db"
@@ -355,10 +369,36 @@ def upload_tab(db: Database, extractor: RequirementExtractor):
         # Process file
         with st.spinner("🔄 Extracting requirements..."):
             # Read file content
+            text = None
+
             if file_extension == '.txt':
                 text = uploaded_file.getvalue().decode('utf-8')
+            elif file_extension == '.pdf':
+                if not PDF_AVAILABLE:
+                    st.error("⚠️ PDF support not installed. Install PyPDF2: pip install PyPDF2")
+                    return
+                try:
+                    pdf_reader = PyPDF2.PdfReader(io.BytesIO(uploaded_file.getvalue()))
+                    text = "\n".join(page.extract_text() for page in pdf_reader.pages)
+                except Exception as e:
+                    st.error(f"❌ Error reading PDF: {e}")
+                    return
+            elif file_extension == '.docx':
+                if not DOCX_AVAILABLE:
+                    st.error("⚠️ DOCX support not installed. Install python-docx: pip install python-docx")
+                    return
+                try:
+                    doc = Document(io.BytesIO(uploaded_file.getvalue()))
+                    text = "\n".join(paragraph.text for paragraph in doc.paragraphs)
+                except Exception as e:
+                    st.error(f"❌ Error reading DOCX: {e}")
+                    return
             else:
-                st.warning("⚠️ PDF/DOCX parsing not included in standalone version. Use .txt files.")
+                st.error(f"❌ Unsupported file type: {file_extension}")
+                return
+
+            if not text or not text.strip():
+                st.error("❌ No text content found in document")
                 return
 
             # Extract requirements
